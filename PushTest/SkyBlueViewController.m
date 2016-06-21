@@ -1,27 +1,27 @@
 //
-//  SecondViewController.m
+//  SkyBlueViewController.m
 //  PushTest
 //
-//  Created by MF839-014 on 2016. 6. 20..
+//  Created by MF839-014 on 2016. 6. 21..
 //  Copyright © 2016년 MF839-014. All rights reserved.
 //
 
-#import "SecondViewController.h"
-#import "AppDelegate.h"
-@interface SecondViewController ()
+#import "SkyBlueViewController.h"
+#import "BlueViewController.h"
+
+@interface SkyBlueViewController ()
 
 @end
 
-@implementation SecondViewController
-- (void) viewWillAppear:(BOOL)animated {
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    [self.view setBackgroundColor: delegate.backColor];
+@implementation SkyBlueViewController
+- (void) viewDidAppear:(BOOL)animated {
+    self.skyBlueLabel.text = _lableStr;
 }
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.skyBlueLabel.text = @"SKY BLUE";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,9 +35,10 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+
+    BlueViewController *nextVC = [segue destinationViewController];
+    nextVC.blueviewlabel.text = @"BLUE";
+    nextVC.blueLableStr = @"BLUE";
 }
 
-- (IBAction)buttonClicked:(id)sender {
-    [self performSegueWithIdentifier: @"third_view" sender:self];
-}
 @end

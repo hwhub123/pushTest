@@ -7,18 +7,29 @@
 //
 
 #import "ThirdViewController.h"
+#import "AppDelegate.h"
 
 @interface ThirdViewController ()
 
 @end
 
 @implementation ThirdViewController
+- (void)viewWillAppear:(BOOL)animated {
+//    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+//    [self.view setBackgroundColor: appDelegate.backColor];
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeBackColor:) name:@"YELLOW" object:nil];
     // Do any additional setup after loading the view.
 }
 
+- (void) changeBackColor: (NSNotification *) noti {
+    [self.view setBackgroundColor: [UIColor yellowColor]];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -1,27 +1,24 @@
 //
-//  SecondViewController.m
+//  BlueViewController.m
 //  PushTest
 //
-//  Created by MF839-014 on 2016. 6. 20..
+//  Created by MF839-014 on 2016. 6. 21..
 //  Copyright © 2016년 MF839-014. All rights reserved.
 //
 
-#import "SecondViewController.h"
-#import "AppDelegate.h"
-@interface SecondViewController ()
+#import "BlueViewController.h"
+#import "DarkBlueViewController.h"
+
+@interface BlueViewController ()
 
 @end
 
-@implementation SecondViewController
-- (void) viewWillAppear:(BOOL)animated {
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    [self.view setBackgroundColor: delegate.backColor];
-}
-
+@implementation BlueViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _blueviewlabel.text = _blueLableStr;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,15 +26,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
+    // Get the new view controller using [segue destinationViewCoßntroller].
     // Pass the selected object to the new view controller.
+    DarkBlueViewController *nextVC = [segue destinationViewController];
+    nextVC.darkblueLableStr = @"DARK BLUE";
+    
 }
 
-- (IBAction)buttonClicked:(id)sender {
-    [self performSegueWithIdentifier: @"third_view" sender:self];
-}
+
 @end
